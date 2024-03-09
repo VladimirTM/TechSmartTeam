@@ -1,0 +1,51 @@
+
+html {
+    background-color: #FFE6E6;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+    overflow: hidden;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+/* Style the links inside the navigation bar */
+.topnav_item {
+    float: right;
+    color: #7469B6;
+    text-align: center;
+    padding: 30px 30px;
+    text-decoration: none;
+    font-size: 28px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.topnav_h1 {
+    float: left;
+    color: #7469B6;
+    text-align: center;
+    padding: 30px 30px;
+    text-decoration: none;
+    font-size: 36px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 0;
+}
+.text-image-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.text-image-section .text {
+    flex: 1;
+    padding: 20px;
+}
+
+.text-image-section .image {
+    flex: 1;
+    padding: 20px;
+    order: 1; /* Add this line to place the image on the right */
+}
