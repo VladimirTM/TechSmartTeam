@@ -29,9 +29,22 @@ const ComplaintModal = () => {
           </button>
         </div>
         <div className="flex flex-col w-full items-center">
-          {complaint.title}
-          {complaint.description}
-          <img src={`/api/resource/${complaint.images}`} alt="" />
+          <span className="text-xl font-poppins font-bold mb-4">
+            {complaint.title}
+          </span>
+          <span className="w-full p-2 font-poppins italic">
+            {complaint.description}
+          </span>
+          <div className="max-w-full flex flex-row flex-wrap items-center justify-center">
+            {complaint.images.map((image) => (
+              <img
+                key={image}
+                src={`/api/resource/${complaint.images}`}
+                className="h-80 rounded-md"
+                alt=""
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>
