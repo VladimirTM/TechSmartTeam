@@ -1,16 +1,9 @@
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-DROP TABLE IF EXISTS images;
-DROP TABLE IF EXISTS complaints;
 
-CREATE TABLE user (
+CREATE TABLE users (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     username TEXT NOT NULL,
     password TEXT NOT NULL
-);
-
-CREATE TABLE user_session (
-    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    user_id UUID NOT NULL REFERENCES user
 );
 
 CREATE TABLE complaints (
@@ -20,19 +13,19 @@ CREATE TABLE complaints (
     latitude TEXT NOT NULL,
     longitude TEXT NOT NULL,
     issued_at TIMESTAMP NOT NULL DEFAULT NOW(),
-    issue_id UUID NOT NULL REFERENCES user,
+    issuer_id UUID NOT NULL REFERENCES users,
     solved_at TIMESTAMP NOT NULL
 );
 
 CREATE TABLE public_servant (
-    user_id UUID NOT NULL REFERENCES user,
+    user_id UUID NOT NULL REFERENCES users,
     employer TEXT NOT NULL
 );
 
 CREATE TABLE assignments (
-    user_id UUID NOT NULL REFERENCES user,
+    user_id UUID NOT NULL REFERENCES users,
     complaint_id UUID NOT NULL REFERENCES complaints,
-    forcasted_due_date TIMESTAMP NOT NULL,
+    forcasted_due_date TIMESTAMP NOT NULL
 );
 
 CREATE TABLE images (
